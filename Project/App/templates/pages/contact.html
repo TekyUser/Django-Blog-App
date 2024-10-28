@@ -1,0 +1,45 @@
+{% extends "pages/base.html" %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+    <section class="section contact">
+
+        <h2 class="h2 section-title">
+            Get in Touch
+        </h2>
+
+        <div class="contact-info">
+            <h3 class="h3">Contact Information</h3>
+            <p><strong>Email:</strong> support@example.com</p>
+            <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+            <p><strong>Address:</strong> 123 Main St, Anytown, AN 12345</p>
+        </div>
+
+        <div class="map">
+            <h3 class="h3">Find Us Here</h3>
+            <!-- Replace the src with your Google Maps link -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345090585!2d144.95373631531816!3d-37.81627997975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11d63b%3A0x5045675218c8e6c1!2sMelbourne%20Central!5e0!3m2!1sen!2sau!4v1605838422879!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <form action="{% url 'contact' %}" method="post" class="contact-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+{% endblock %}
+   
